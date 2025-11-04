@@ -160,10 +160,22 @@ h1, h2, h3 {
 
 /* ======= FOOTER ======= */
 footer {
-    background-color: #0a4632;
+    background-color: #2e7d32; /* tono verde natural */
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 20px 10px;
+    font-size: 1rem;
+    margin-top: 40px;
+}
+
+footer .contacto {
+    margin-bottom: 8px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+footer strong {
+    color: #ffffff; /* tono verde claro para resaltar el número */
 }
 
 /* ======= CARRUSEL CON SCROLL ======= */
@@ -219,4 +231,5 @@ footer {
 
 .prev { left: 15px; }
 .next { right: 15px; }
+
 
