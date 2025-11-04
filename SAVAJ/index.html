@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAVAJ - Crema Natural Artesanal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header class="hero">
+        <!-- 🔁 Cambia esta imagen por la tuya (en la carpeta img o con URL directa) -->
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>SAVAJ</h1>
+            <p>Crema artesanal de sábila y aceites naturales</p>
+            <a href="#productos" class="btn">Descubre más</a>
+        </div>
+    </header>
+
+    <!-- Sección: Sobre nosotros -->
+    <section id="nosotros" class="section">
+        <h2>¿Quiénes Somos?</h2>
+        <p>
+            Somos un equipo comprometido con el bienestar y la naturaleza. Nuestra crema artesanal “SAVAJ” 
+            está elaborada con sábila orgánica, aceites naturales y sin químicos agresivos. 
+            Creemos que la belleza empieza con la salud y la salud empieza con la naturaleza.
+        </p>
+
+        <div class="team">
+            <div class="member">
+                <h3>Stefano Vásquez</h3>
+                <p>Gerente General</p>
+            </div>
+            <div class="member">
+                <h3>Antonio Salas</h3>
+                <p>Gerente de Producción</p>
+            </div>
+            <div class="member">
+                <h3>Joao Morales</h3>
+                <p>Gerente de Marketing</p>
+            </div>
+            <div class="member">
+                <h3>Valentina Casquero</h3>
+                <p>Gerente de Ventas</p>
+            </div>
+            <div class="member">
+                <h3>Antonella Chirinos</h3>
+                <p>Gerente de Innovación</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Producto -->
+    <section id="productos" class="section light">
+        <h2>Nuestro Producto</h2>
+        <div class="product">
+            <!-- 🔁 Cambia esta imagen por la foto real del producto -->
+            <img src="image/producto.jpg" alt="Crema SAVAJ">
+            <div class="product-info">
+                <p>
+                    “SAVAJ” es una crema artesanal elaborada con sábila orgánica, aceites naturales y sin químicos agresivos. 
+                    Hidrata profundamente, calma la piel y la protege de forma natural.
+                </p>
+                <ul>
+                    <li>Rico en vitaminas A, C y E.</li>
+                    <li>Propiedades antiinflamatorias y regenerativas.</li>
+                    <li>Textura ligera y aroma fresco.</li>
+                    <li>Envases reciclables y ecoamigables.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Modelos de Venta -->
+    <section id="ventas" class="section">
+        <h2>Modelos de Venta</h2>
+        <div class="pricing">
+            <div class="card">
+                <h3>Frasco Personal</h3>
+                <p class="price">S/. 5.00</p>
+                <p>Frasco de 20 ml ideal para uso diario.</p>
+            </div>
+            <div class="card">
+                <h3>Pack Doble</h3>
+                <p class="price">S/. 8.00</p>
+                <p>Pack de dos frascos, perfecto para compartir.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Proceso de Preparación -->
+    <section id="proceso" class="section light">
+        <h2>Proceso de Preparación</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="slide active"><img src="image/comienzo.jpg" alt="Preparación 1"></div>
+                <div class="slide"><img src="image/despuescomienzo.jpg" alt="Preparación 2"></div>
+                <div class="slide"><img src="image/despuesdespuescomienzo.jpg" alt="Preparación 3"></div>
+                <div class="slide"><img src="image/final.jpg" alt="Preparación 5"></div>
+            </div>
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Frase alusiva -->
+    <section class="section phrase light">
+        <blockquote>
+            “Con SAVAJ, no solo cuidamos la piel ¡cuidamos a las personas!”
+        </blockquote>
+        <p>Porque creemos que la belleza empieza con la salud y la salud empieza con la naturaleza.</p>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 SAVAJ. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+
+        let index = 0;
+
+        // Función para mostrar la imagen actual
+        function showSlide(i) {
+        const slideWidth = slides[0].clientWidth;
+        carousel.scrollTo({
+            left: slideWidth * i,
+            behavior: 'smooth'
+        });
+        }
+
+        // Flechas manuales
+        nextBtn.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+        });
+
+        prevBtn.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        showSlide(index);
+        });
+
+        // Desplazamiento automático
+        setInterval(() => {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+        }, 4000);
+
+        // Permitir desplazamiento con el mouse (drag) o dedo (touch)
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        carousel.addEventListener('mousedown', e => {
+        isDown = true;
+        carousel.classList.add('active');
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+        carousel.classList.remove('active');
+        });
+
+        carousel.addEventListener('mouseup', () => {
+        isDown = false;
+        carousel.classList.remove('active');
+        });
+
+        carousel.addEventListener('mousemove', e => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 2; // velocidad del desplazamiento
+        carousel.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+
+
+
+    <script>
+    document.querySelector('.btn').addEventListener('click', function(event) {
+        event.preventDefault(); // Evita el salto inmediato
+        const target = document.querySelector('#productos');
+        target.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento animado
+    });
+    </script>
+
+</body>
+</html>

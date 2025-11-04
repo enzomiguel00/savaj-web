@@ -1,0 +1,222 @@
+/* ======= ESTILOS GENERALES ======= */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: #333;
+    background-color: #fafafa;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    color: #0a4632;
+}
+
+.section {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.section.light {
+    background-color: #f3f9f4;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #0a4632;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #0f6a4c;
+}
+
+/* ======= HERO ======= */
+.hero {
+    background-image: url('image/background.png');
+    background-size: contain; /* mantiene proporción del logo */
+    background-repeat: no-repeat; /* evita que se repita */
+    background-position: center;
+    background-color: #f3f9f4; /* color de fondo detrás del logo */
+    height: 90vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.hero-content {
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #ffffff; /* 🔸 Cambia a blanco para mayor contraste */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6); /* 🔸 Añade sombra para resaltar sobre el fondo */
+    letter-spacing: 2px;
+}
+
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+/* ======= EQUIPO ======= */
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.member {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.member h3 {
+    color: #0f6a4c;
+    margin-bottom: 5px;
+}
+
+/* ======= PRODUCTO ======= */
+.product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.product img {
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.product-info {
+    max-width: 500px;
+    text-align: left;
+}
+
+.product-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.product-info li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    background: url('https://cdn-icons-png.flaticon.com/512/190/190411.png') no-repeat left center / 16px;
+}
+
+/* ======= PRECIOS ======= */
+.pricing {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 30px;
+    width: 250px;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: #0a4632;
+    margin: 10px 0;
+}
+
+/* ======= FRASE ======= */
+.phrase blockquote {
+    font-size: 1.5rem;
+    color: #0f6a4c;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+/* ======= FOOTER ======= */
+footer {
+    background-color: #0a4632;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ======= CARRUSEL CON SCROLL ======= */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto; /* permite scrollear hacia los lados */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    transition: transform 0.8s ease;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+/* Flechas */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
